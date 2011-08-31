@@ -113,17 +113,33 @@
                 $(this).text('SHKING...');
 
                 $.getJSON(
-                    "https://api.twitter.com/statuses/user_timeline.json?callback=?",
+                    "https://api.twitter.com/1/statuses/user_timeline.json?callback=?",
                     {
                         "screen_name": "best_of_mlkshk",
-                        "count": 1,
-                        "include_entities": 1
+                        "count": 10,
+                        "include_entities": 1,
+                        "trim_user": 1
                     },
                     function (data, textStatus, xhr) {
-                        var tweet = data[0]['text'];
-                        var matches = tweet.match(new RegExp('http://mlkshk.com/p/([A-Z0-9]+)'))
-                        var fileid = parseInt(matches[1], 36);
-                        var newFileID = Math.floor(Math.random() * fileid);
+                        var urls = $.grep($.map(data, function (tweet, i) {
+                            if (tweet.entities.urls[0] == 'undefined')
+                                return null;
+                            var url = tweet.entities.urls[0].expanded_url;
+                            var matches = url.match(new RegExp('http://mlkshk.com/p/([A-Z0-9]+)'));
+                            if (!matches)
+                                return null;
+                            return matches[1];
+                        }), function (val, i) {
+                            return !!val;
+                        });
+                        if (!urls) {
+                            alert("Oops, didn't find any MLKSHK keys :(");
+                            return;
+                        }
+
+                        var latestKey = urls[0];
+                        var latestID = parseInt(latestKey, 36);
+                        var newFileID = Math.floor(Math.random() * latestID);
                         var newFileKey = newFileID.toString(36).toUpperCase();
 
                         window.location = "http://mlkshk.com/p/" + newFileKey;
