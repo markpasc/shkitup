@@ -5,8 +5,8 @@
 
     <style type="text/css">
         /* http://webdesignerwall.com/tutorials/css3-gradient-buttons */
-        
-        /* button 
+
+        /* button
         ---------------------------------------------- */
         a.button {
             display: inline-block;
@@ -36,7 +36,7 @@
             position: relative;
             top: 1px;
         }
-         
+
         a.bigrounded /* .bigrounded */ {
             -webkit-border-radius: 2em;
             -moz-border-radius: 2em;
@@ -50,10 +50,10 @@
             font-size: 11px;
             padding: .2em 1em .275em;
         }
-         
-        /* color styles 
+
+        /* color styles
         ---------------------------------------------- */
-         
+
         /* pink */
         a.button-pink {
             color: #feeef5;
@@ -80,7 +80,7 @@
     <style type="text/css">
         /* 960.gs reset.css */
         html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
-        
+
         /* 960.gs text.css */
         body{font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}a:focus{outline:1px dotted}hr{border:0 #ccc solid;border-top-width:1px;clear:both;height:0}h1{font-size:25px}h2{font-size:23px}h3{font-size:21px}h4{font-size:19px}h5{font-size:17px}h6{font-size:15px}ol{list-style:decimal}ul{list-style:disc}li{margin-left:30px}p,dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset{margin-bottom:20px}
     </style>
@@ -111,7 +111,7 @@
                     return;
                 $(this).data('loading', 'loading');
                 $(this).text('SHKING...');
-    
+
                 $.getJSON(
                     "https://api.twitter.com/statuses/user_timeline.json?callback=?",
                     {
@@ -125,7 +125,7 @@
                         var fileid = parseInt(matches[1], 36);
                         var newFileID = Math.floor(Math.random() * fileid);
                         var newFileKey = newFileID.toString(36).toUpperCase();
-    
+
                         window.location = "http://mlkshk.com/p/" + newFileKey;
                     }
                 );
@@ -135,7 +135,7 @@
         $(window).bind('unload', function (e) {
             $('#button').text('SHK IT UP');
             $('#button').data('loading', null);
-    
+
             return true;
         });
     </script>
@@ -148,7 +148,7 @@
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-1815190-3']);
       _gaq.push(['_trackPageview']);
-    
+
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
